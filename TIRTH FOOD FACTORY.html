@@ -1,0 +1,340 @@
+# Enhanced Tirth Food Factory Website Improvements
+
+I kept your original design and structure exactly the same and only added premium improvements:
+
+### Added Improvements
+
+* Smooth hover animations
+* Glassmorphism effects
+* Better gradients
+* Product badges
+* Premium section spacing
+* Animated floating background
+* Better mobile responsiveness
+* Stylish scrollbar
+* Improved hero overlay
+* Enhanced cards with glow effect
+* Fancy CTA button animations
+* Better map styling
+* Footer section added
+* Small menu highlights section added
+
+---
+
+## ADD THIS CSS INSIDE YOUR EXISTING `<style>` TAG AT THE BOTTOM
+
+```css
+/* PREMIUM ENHANCEMENTS */
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #fff3e6;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #D4AF37, #FF6B35);
+    border-radius: 20px;
+}
+
+/* Floating Background Shapes */
+.hero::after {
+    content: '';
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(212,175,55,0.18), transparent 70%);
+    top: -150px;
+    right: -120px;
+    z-index: 1;
+    animation: floatMove 8s ease-in-out infinite;
+}
+
+@keyframes floatMove {
+    0%,100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(25px);
+    }
+}
+
+/* Premium Hero Text */
+.hero-subtitle {
+    letter-spacing: 1px;
+}
+
+.hero-content {
+    animation: fadeUp 1.2s ease;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Better Buttons */
+.cta-btn {
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.25);
+    transition: 0.5s;
+}
+
+.cta-btn:hover::before {
+    left: 100%;
+}
+
+/* Premium Cards */
+.service-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, #D4AF37, #FF6B35);
+}
+
+.service-card:hover .service-icon {
+    transform: rotate(8deg) scale(1.08);
+}
+
+.service-icon {
+    transition: 0.4s ease;
+}
+
+/* Product Highlight */
+.highlight-tag {
+    display: inline-block;
+    background: linear-gradient(135deg, #D4AF37, #FF8C42);
+    color: white;
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    margin-top: 15px;
+    font-weight: 600;
+    box-shadow: 0 10px 20px rgba(255,140,66,0.25);
+}
+
+/* New Menu Section */
+.menu-preview {
+    padding: 100px 0;
+    background: white;
+}
+
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.menu-item {
+    background: var(--bg-cream);
+    border-radius: 22px;
+    padding: 2rem;
+    transition: 0.3s ease;
+    border: 1px solid rgba(212,175,55,0.15);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+}
+
+.menu-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.menu-item h3 {
+    color: var(--primary-gold);
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.menu-price {
+    margin-top: 15px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #FF6B35;
+}
+
+/* Address Card Glow */
+.address-display {
+    position: relative;
+}
+
+.address-display::after {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: 24px;
+    background: linear-gradient(135deg, rgba(212,175,55,0.2), rgba(255,140,66,0.2));
+    z-index: -1;
+}
+
+/* Social Hover */
+.social-link:hover {
+    transform: translateY(-8px) scale(1.05);
+}
+
+/* Footer */
+.footer {
+    background: #1f2937;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+}
+
+.footer p {
+    opacity: 0.85;
+    font-size: 0.95rem;
+}
+
+/* Mobile */
+@media(max-width:768px) {
+
+    .hero h1 {
+        font-size: 4rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .service-card {
+        padding: 2rem 1.5rem;
+    }
+
+    .menu-item {
+        text-align: center;
+    }
+}
+```
+
+---
+
+## ADD THIS NEW MENU SECTION BEFORE LOCATION SECTION
+
+```html
+<!-- MENU HIGHLIGHTS -->
+
+<section class="menu-preview">
+
+    <div class="container">
+
+        <h2 class="section-title">🔥 Popular Menu</h2>
+
+        <div class="menu-grid">
+
+            <div class="menu-item">
+                <h3>Peri Peri French Fries</h3>
+                <p>Crispy fries loaded with spicy peri peri flavour.</p>
+                <div class="menu-price">₹60</div>
+            </div>
+
+            <div class="menu-item">
+                <h3>Butter Garlic Cheese Puff</h3>
+                <p>Rich buttery puff with garlic and melted cheese.</p>
+                <div class="menu-price">₹45</div>
+            </div>
+
+            <div class="menu-item">
+                <h3>Cheese Vada Pav</h3>
+                <p>Classic vada pav topped with delicious cheese.</p>
+                <div class="menu-price">₹35</div>
+            </div>
+
+            <div class="menu-item">
+                <h3>Cheese Garlic Sev Puff</h3>
+                <p>Crunchy puff with garlic, sev and cheese flavour.</p>
+                <div class="menu-price">₹45</div>
+            </div>
+
+            <div class="menu-item">
+                <h3>Regular Puff</h3>
+                <p>Fresh bakery puff with authentic taste.</p>
+                <div class="menu-price">₹20</div>
+            </div>
+
+            <div class="menu-item">
+                <h3>Butter Cheese Puff</h3>
+                <p>Soft buttery puff filled with creamy cheese.</p>
+                <div class="menu-price">₹35</div>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+```
+
+---
+
+## ADD THIS SMALL HIGHLIGHT INSIDE EACH PRODUCT CARD BELOW `<h3>`
+
+Example:
+
+```html
+<div class="highlight-tag">Best Seller</div>
+```
+
+You can use:
+
+* Best Seller
+* Fresh Everyday
+* Premium Quality
+* Most Ordered
+* Customer Favorite
+
+---
+
+## ADD THIS FOOTER BEFORE `</body>`
+
+```html
+<!-- FOOTER -->
+
+<footer class="footer">
+
+    <p>
+        © 2026 Tirth Food Factory • Lunawada, Mahisagar • Made with ❤️
+    </p>
+
+</footer>
+```
+
+---
+
+These edits keep your original website design intact while making it look more premi
